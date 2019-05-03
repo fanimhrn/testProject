@@ -18,3 +18,8 @@ Route::get('/', function () {
 Route::get('menu', 'MenuController@index');
 Route::post('menu/add',['as'=>'add.menu','uses'=>'MenuController@add']);
 Route::get('menu/delete/{id}',['uses'=>'MenuController@delete']);
+Auth::routes();
+
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+Route::get('/home', 'HomeController@index')->name('home');
+
